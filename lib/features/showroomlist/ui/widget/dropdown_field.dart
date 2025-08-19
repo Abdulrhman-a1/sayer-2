@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sayer/common/theme/colors.dart';
 
-class AppDropdownField extends StatelessWidget {
-  const AppDropdownField({
+class ShowroomListDropdownField extends StatelessWidget {
+  const ShowroomListDropdownField({
     super.key,
     required this.items,
     required this.value,
@@ -135,7 +135,9 @@ class AppDropdownField extends StatelessWidget {
         decoration: InputDecoration(
           isDense: true,
           filled: true,
-          fillColor: (dropdownBackgroundColor ?? AppColors.white).withOpacity(0.6),
+          fillColor: (dropdownBackgroundColor ?? AppColors.white).withOpacity(
+            0.6,
+          ),
           hintText: hintText,
           hintStyle: TextStyle(
             fontSize: fontSize,

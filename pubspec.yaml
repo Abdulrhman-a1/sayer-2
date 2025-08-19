@@ -1,7 +1,7 @@
 name: sayer
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.1.8
+version: 0.1.10
 
 environment:
   sdk: ^3.7.2
@@ -62,3 +62,10 @@ flutter:
     - family: "Montserrat"
       fonts:
         - asset: "assets/fonts/Montserrat-Arabic-Regular.ttf"
+
+flutter_native_splash:
+  color: "#4baefa"
+  image: assets/images/logo.png
+  android: true
+  ios: true
+  web: true

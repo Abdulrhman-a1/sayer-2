@@ -1,20 +1,27 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationHelper {
   static final notifications = FlutterLocalNotificationsPlugin();
 
   static Future<void> initialize() async {
-    const DarwinInitializationSettings iosInit = DarwinInitializationSettings(
-      requestAlertPermission: true,
-      requestBadgePermission: true,
-      requestSoundPermission: true,
-    );
+    try {
+      const DarwinInitializationSettings iosInit = DarwinInitializationSettings(
+        requestAlertPermission: true,
+        requestBadgePermission: true,
+        requestSoundPermission: true,
+      );
 
-    const InitializationSettings initSettings = InitializationSettings(
-      iOS: iosInit,
-    );
+      const InitializationSettings initSettings = InitializationSettings(
+        iOS: iosInit,
+      );
 
-    await notifications.initialize(initSettings);
+      final bool? initialized = await notifications.initialize(initSettings);
+      debugPrint('Notifications initialized: $initialized');
+    } catch (e) {
+      debugPrint('Error initializing notifications: $e');
+      rethrow;
+    }
   }
 
   static Future<void> showNotification(String title, String body) async {

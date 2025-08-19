@@ -49,7 +49,10 @@ class AppDropdownField extends StatelessWidget {
         focusedBorderColor ?? AppColors.darkerGrey;
     final Color finalIconColor = iconColor ?? AppColors.darkGrey;
 
-    final double finalItemHeight = (itemHeight ?? 48).h;
+    final double finalItemHeight = (itemHeight ?? 48.0).h.clamp(
+      48.0,
+      double.infinity,
+    );
     final double finalMenuMaxHeight = (menuMaxHeight ?? 360).h;
     final Color finalDropdownBg = dropdownBackgroundColor ?? Colors.white;
     final BorderRadius finalPopupRadius =
